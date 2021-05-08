@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Head from "next/head";
 
-//With state
+//Without state
 export default function Form() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  let firstName: string;
+  let lastName: string;
 
   const verifyData = (e: any) => {
     e.preventDefault();
@@ -20,8 +20,8 @@ export default function Form() {
     }
 
     e.target.reset();
-    setFirstName("");
-    setLastName("");
+    firstName = "";
+    lastName = "";
   };
 
   return (
@@ -32,7 +32,7 @@ export default function Form() {
           type="text"
           pattern="[a-zA-Z]*"
           placeholder="Ingrese Nombre"
-          onChange={(e) => setFirstName(e.target.value)}
+          onChange={(e) => (firstName = e.target.value)}
         />
         <br />
         <br />
@@ -40,7 +40,7 @@ export default function Form() {
           type="text"
           pattern="[a-zA-Z]*"
           placeholder="Ingrese Apellido"
-          onChange={(e) => setLastName(e.target.value)}
+          onChange={(e) => (lastName = e.target.value)}
         />
         <br />
         <br />
